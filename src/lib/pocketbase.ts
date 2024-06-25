@@ -18,7 +18,7 @@ export const getAllStuff = async () => {
 		fields: 'id, name, user'
 	});
 	const characters = await pb.collection('characters').getFullList({
-		sort: '+created',
+		sort: '+name',
 		fields: 'id, name, displayName, element'
 	});
 	const nicks = await pb.collection('nicks').getFullList({
