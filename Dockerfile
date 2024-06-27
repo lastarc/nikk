@@ -12,6 +12,8 @@ RUN unzip /tmp/pb.zip -d /pb/
 
 COPY ./pb_migrations /pb/pb_migrations
 
+WORKDIR /pb
+
 EXPOSE 8090
 
-CMD ["/pb/pocketbase", "--dir", "pb_data", "serve", "--http=0.0.0.0:8090"]
+CMD ["./pocketbase", "serve", "--http=0.0.0.0:8090"]
