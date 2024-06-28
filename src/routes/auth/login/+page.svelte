@@ -12,6 +12,6 @@
 		const url = new URL(discordAuth.authUrl);
 		url.searchParams.set('redirect_uri', window.location.origin + '/auth/callback');
 		console.log(url.toString());
-		window.location.href = url.toString();
+		window.location.replace(url.toString());
 	});
 </script>
