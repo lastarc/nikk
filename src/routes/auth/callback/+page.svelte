@@ -46,14 +46,16 @@
 		let profile: RecordModel | null = null;
 		try {
 			profile = await pb
-					.collection('profiles')
-					.getFirstListItem(pb.filter('user = {:user}', { user: pb.authStore.model.id }));
-		} catch (e) { /* noop */ }
+				.collection('profiles')
+				.getFirstListItem(pb.filter('user = {:user}', { user: pb.authStore.model.id }));
+		} catch (e) {
+			/* noop */
+		}
 
 		if (!profile) {
 			await pb.collection('profiles').create({
 				user: pb.authStore.model.id,
-				name: pb.authStore.model.username || pb.authStore.model.email.split('@')[0],
+				name: pb.authStore.model.username || pb.authStore.model.email.split('@')[0]
 			});
 		}
 
