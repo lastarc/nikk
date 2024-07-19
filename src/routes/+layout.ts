@@ -2,14 +2,13 @@ import type { LayoutLoad } from './$types';
 import { pb } from '$lib/pocketbase';
 import type { RecordModel } from 'pocketbase';
 
-export const load: LayoutLoad = async ({ setHeaders }) => {
+export const load: LayoutLoad = async () => {
 	pb.authStore.loadFromCookie(document.cookie);
 
 	try {
 		pb.authStore.isValid && (await pb.collection('users').authRefresh());
-	} catch (e) {
-		console.log('authRefresh error', e);
-		// do nothing
+	} catch (_) {
+		pb.authStore.clear();
 	}
 
 	const user = pb.authStore.model;
