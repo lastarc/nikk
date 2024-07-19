@@ -116,7 +116,10 @@
 								<div class="dropdown-content">
 									<button
 										class="button is-text is-small dropdown-item navbar-item is-display-block"
-										on:click={() => (editUsernameModalOpen = true)}
+										on:click={() => {
+											newUsernameInput.value = $page.data.profile?.name || ''
+											editUsernameModalOpen = true
+										}}
 									>
 										Edit Username
 									</button>
