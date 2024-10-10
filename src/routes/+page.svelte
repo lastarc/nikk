@@ -28,6 +28,8 @@
 		characters.set(updatedData.characters);
 		nicks.set(updatedData.nicks);
 	};
+
+	const imageBucketEndpoint = 'https://c1.nikk.cc';
 </script>
 
 <!--<pre>{JSON.stringify(profile, null, 2)}</pre>-->
@@ -55,7 +57,7 @@
 				<figure class="image is-9by16" style="width: 100%; height: 100%;">
 					<img
 						style="object-fit: contain; object-position: center;"
-						src={`https://gyubsxepzjsfwujqrmtj.supabase.co/storage/v1/object/public/character_images/${$editModal?.character.name}.card.jpg`}
+						src={`${imageBucketEndpoint}/${$editModal?.character.name}.card.jpg`}
 						alt={`${$editModal?.character.displayName}'s card`}
 					/>
 				</figure>
@@ -86,7 +88,7 @@
 							<figure class="image is-48x48">
 								<img
 									class="is-rounded"
-									src={`https://gyubsxepzjsfwujqrmtj.supabase.co/storage/v1/object/public/character_images/${character.name}.icon.png`}
+									src={`${imageBucketEndpoint}/${character.name}.icon.png`}
 									alt={`${character.displayName}'s icon`}
 								/>
 							</figure>
